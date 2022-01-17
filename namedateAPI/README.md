@@ -1,1 +1,1 @@
-Make curl requests and learn who celebrates his name date, each day!
+An API for Greek name dates!

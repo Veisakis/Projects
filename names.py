@@ -11,7 +11,7 @@ db = SQLAlchemy(app)
 class Calendar(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False)
-    name = db.Column(db.String(100))
+    name = db.Column(db.String(100), default="Κανένας")
 
     def __repr__(self):
         return f"Calendar('{self.date}', '{self.name}')"

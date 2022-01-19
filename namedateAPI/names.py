@@ -1,6 +1,6 @@
+from datetime import datetime
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///calendar.db'
@@ -24,6 +24,7 @@ def home():
         month = int(request.args['dt'].split("-")[1])
         day = int(request.args['dt'].split("-")[2])
         return Calendar.query.filter(Calendar.date == datetime(year, month, day)).first().name
+
     else:
         return Calendar.query.filter(Calendar.date == datetime(datetime.today().year,
                                                                datetime.today().month,

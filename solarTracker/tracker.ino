@@ -1,20 +1,19 @@
 #include <Servo.h>
+#include <solar.h>
 
 Servo myservo;
 
-int pos;
+int potpin = 0;
+int val;
 
-void setup(){
-	myservo.attach(9);
+void setup() {
+  myservo.attach(9);
 }
 
-void loop(){
-	for (pos = 0; pos <= 180; pos++){
-		myservo.write(pos);
-		delay(15);
-	}
-	
-	for (pos = 180; pos >= 0; pos--){
-		myservo.write(pos);
-		delay(15);
-	}
+void loop() {
+  val = analogRead(potpin);
+  val = map(val, 0, 1023, 0, 180);
+
+  myservo.write(val);
+  delay(15);
+}

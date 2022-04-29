@@ -3,7 +3,7 @@
 #define PI 3.14159
 #define DEGREES(x) x * 180.0/PI
 #define RADIANS(x) x * PI/180.0
-#define SIGN(x) x = (x > 0) ? 1 : -1
+#define SIGN(x) (x > 0 ? 1 : -1)
  
 float l_loc = 23.75;
 unsigned short phi = 30;
@@ -84,12 +84,7 @@ float sunheight(float uz){
 }
 
 float azimuth(float uz, float d, float w){
-	float gamma;
-	gamma = fabs(DEGREES(acos((cos(RADIANS(uz))*sin(RADIANS(phi))-sin(RADIANS(d)))/(sin(RADIANS(uz))*cos(RADIANS(phi))))));
-	if (w > 0)
-		return gamma;
-	else
-		return (-1) * gamma;
+	return SIGN(w) * fabs(DEGREES(acos((cos(RADIANS(uz))*sin(RADIANS(phi))-sin(RADIANS(d)))/(sin(RADIANS(uz))*cos(RADIANS(phi))))));
 } 
 
 float servoAngle(unsigned short n, float tl){

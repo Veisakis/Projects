@@ -3,8 +3,8 @@
 
 Servo myservo;
 
-unsigned short potpin_hour = 1;
-unsigned short potpin_day = 2;
+unsigned short potpin_hour = A0;
+unsigned short potpin_day = A1;
 
 unsigned short day_val;
 float hour_val;
@@ -18,15 +18,13 @@ void setup() {
 
   hour_val = analogRead(potpin_hour);
   hour_val = map(hour_val, 0, 1023, 0, 2459);
-	hour_val *= 0.01;
+  hour_val *= 0.01;
 }
 
 void loop() {
-	angle = servoAngle(day_val, hour_val);
-	myservo.write(angle);
-
-	printf("Angle: %.2f\tTime: %.2f\n", angle, hour_val);
+  angle = servoAngle(day_val, hour_val);
+  myservo.write(angle);
 
   delay(1000);
-	hour_val += 0.01;
+  hour_val += 0.01;
 }

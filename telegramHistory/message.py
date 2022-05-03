@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 def sendMessage(msg):
 	bot_token = os.environ['TELEGRAM_TOKEN']
 	bot_chatID = os.environ['TELEGRAM_CHATID']
-	url = "https://api.telegram.org/bot{token}/sendMessage?chat_id={id}&text={message}".format(token=bot_token, id=bot_chatID, message=msg)
+	url = "https://api.telegram.org/bot{token}/sendMessage?chat_id={id}&text={message}&disable_notification=True".format(token=bot_token, id=bot_chatID, message=msg)
 
 	status = requests.get(url)
 	return status.json()	

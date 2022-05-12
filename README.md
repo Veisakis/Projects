@@ -1,1 +1,1 @@
-**These are my bigger Projects!**
+**These are my smaller Projects!**

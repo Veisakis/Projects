@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>MORE Calculator-Charging Current</title>
+
+	<link rel="stylesheet" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	
+	<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+</head>
+	<h1 class="title">MORE Calculator</h1>
+	<h4 class="title"><i>Charging Current</i></h4><hr>
+
+	<div class="container">
+		<div class="row">
+		  <div class="col-sm">
+		<div>
+			<label for="cap"><i>Circuit Capacity [MVA]</i></label><br>
+			<input id="cap" type="number" value="200" oninput="graphRenderer()"><br><br>
+		</div>
+
+		<div>
+			<label for="km"><i>Distance [km]</i></label><br>
+			<input id="km" type="number" value="50" oninput="graphRenderer()"><br><br>
+		</div>
+
+		<div>
+			<label for="cmp"><i>Compensation [km]</i></label><br>
+			<input id="cmp" type="number" value="25" oninput="graphRenderer()"><br><br>
+		</div>
+
+		<label for="voltage"><i>Voltage [kV]</i></label><br>
+		<div id="voltage">
+			<input type="radio" id="v1" name="voltage" value="20" onclick="getVoltage(this)"> 20
+			<input type="radio" id="v2" name="voltage" value="33" onclick="getVoltage(this)"> 33
+			<input type="radio" id="v3" name="voltage" value="150" onclick="getVoltage(this)"> 150
+		</div>
+
+		<label for="cables"><i>Cable Cross-Section [mm<sup>2</sup>]</i></label><br>
+		<div id="cables">
+			<input type="radio" id="c1" name="cable" value=800 onclick="getCable(this)"> 800
+			<input type="radio" id="c2" name="cable" value=1000 onclick="getCable(this)"> 1000
+			<input type="radio" id="c3" name="cable" value=1200 onclick="getCable(this)"> 1200
+			<input type="radio" id="c4" name="cable" value=1400 onclick="getCable(this)"> 1400
+			<input type="radio" id="c5" name="cable" value=1600 onclick="getCable(this)"> 1600
+			<input type="radio" id="c6" name="cable" value=1800 onclick="getCable(this)"> 1800
+		</div>
+	</div>
+	<div class="col-sm">
+		<canvas id="chart" width="500"></canvas>
+	</div>
+	<div class="col-sm">
+		<span><b>Active Power:</b> <span class="res" id="res1"></span> MW<sub>max</sub></span><br>
+		<span><b>Reactive Power:</b> <span class="res" id="res2"></span> MVA<sub>r</sub></span><br><br>
+		<span><b>Charging Current:</b> <span class="res" id="res3"></span> A/phase</span><br>
+		<span><b>Reactive Power:</b> <span class="res" id="res4"></span> MVA<sub>r</sub>/phase</span><br>
+		<span><b>Compensation at each end:</b> <span class="res" id="res5"></span> MVA<sub>r</sub>/phase</span><br>
+	</div>
+	</div>
+	</div><br><hr>
+
+	<figure class="text-end">
+		<figcaption class="blockquote-footer">
+		  <cite title="Developers">Developed by Lysimachos Rozik & Manousos Veisakis</cite>
+		</figcaption>
+	</figure>
+
+	<script src="data.js"></script>
+	<script src="equations.js"></script>
+	<script src="graph.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>

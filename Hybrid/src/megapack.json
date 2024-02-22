@@ -1,0 +1,8 @@
+{
+  "type" : "LFP",
+  "power_w" : 2000000,
+  "capacity_wh" : 4000000,
+  "dod" : 0.95,
+  "rte" : 1,
+  "duration" : 2
+}

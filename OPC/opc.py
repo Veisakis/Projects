@@ -7,6 +7,9 @@ from opcua import Client
 url = "opc.tcp://212.205.81.18:4840/OPCUA/NORDEX-CIF-OPC-UA"
 bot_token = "7046112254:AAHQS_1G4_VXObljR9-kbL_53WIbE54uzXM"
 
+username = ""
+password = ""
+
 node_voltage = "ns=2;s=01CWE50208_analog_ANA000"
 node_power = "ns=2;s=01CWE50208_analog_ANA006"
 node_system = "ns=2;s=01CWE50208_analog_ANA070"
@@ -18,6 +21,8 @@ bot = telebot.TeleBot(bot_token)
 def opc(nodeid):
     try:
         client = Client(url)
+        client.set_user(username)
+        client.set_password(password)
         client.connect()
 
         node = client.get_node(nodeid)

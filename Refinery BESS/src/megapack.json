@@ -1,0 +1,8 @@
+{
+  "type" : "Li-Ion",
+  "power_w" : 1927200,
+  "capacity_wh" : 3854400,
+  "dod" : 0.95,
+  "rte" : 0.85,
+  "duration" : 2
+}

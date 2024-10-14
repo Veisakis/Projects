@@ -3,6 +3,14 @@ from matplotlib import pyplot as plt
 
 skiplines = 2 #Change based on the raw data file format
 
+def main():
+    img_dir = Path("img")
+    img_dir.mkdir(exist_ok=True)
+
+    for file in Path('data').iterdir():
+        strength, odor, time = getData(file)
+        plotGraph(time, strength, odor, file.stem, img_dir)
+
 def getData(filename):
     strength, odor, secs = [], [], 0
 
@@ -43,14 +51,6 @@ def plotGraph(x, y1, y2, filename, directory):
     path = directory / filename
     plt.savefig(path, format="png")
     plt.show()
-
-def main():
-    img_dir = Path("img")
-    img_dir.mkdir(exist_ok=True)
-
-    for file in Path('data').iterdir():
-        strength, odor, time = getData(file)
-        plotGraph(time, strength, odor, file.stem, img_dir)
 
 if __name__ == "__main__":
     main()

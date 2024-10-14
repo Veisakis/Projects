@@ -46,8 +46,9 @@ def plotGraph(x, y1, y2, filename, directory):
     ax2.set_ylim(0,5)
 
     path = directory / filename
-    plt.savefig(path, format="png")
-    plt.show()
+    path = path.with_suffix('.png')
+    plt.savefig(path, format='png')
+    #plt.show()
 
 if __name__ == "__main__":
     main()

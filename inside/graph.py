@@ -1,7 +1,7 @@
 from pathlib import Path
 from matplotlib import pyplot as plt
 
-skiplines = 2 #Change based on the raw data file format
+skiplines = 4
 
 def main():
     img_dir = Path("img")
@@ -41,12 +41,9 @@ def plotGraph(x, y1, y2, filename, directory):
     ax1.set_ylabel("Strength")
     ax2.set_ylabel("Odor Intensity")
 
-    ax1.set_xticks(x) 
     ax1.set_xlim(0, max(x))
     ax1.set_ylim(0,1000)
     ax2.set_ylim(0,5)
-
-    ax2.grid(which='major', alpha=1.0)
 
     path = directory / filename
     plt.savefig(path, format="png")
